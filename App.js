@@ -1,37 +1,35 @@
 import React, {Component} from 'react'
-import {StyleSheet, Text, View} from 'react-native'
+import {View, StyleSheet} from 'react-native'
+import Header from './src/components/uikit/Header'
+import TestCard from './src/components/uikit/TestCard'
 
-// const instructions = Platform.select({
-//   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-//   android:
-//     'Double tap R on your keyboard to reload,\n' +
-//     'Shake or press menu button for dev menu',
-// });
+const url = 'http://moezdorovie.org:8040/api/v2/quizzes'
 
-//type Props = {};
 export default class App extends Component {
+  state = {
+    title: 'Тесты здоровья',
+    data: []
+  }
+
+  componentDidMount = async () => {
+    const response = await fetch(url)
+    const data = await response.json()
+    this.setState({data})
+  }
+
   render() {
     return (
-      <View style={styles.header}>
-        <Text style={styles.welcome}>Тесты здоровья</Text>
+      <View style={styles.body}>
+        <Header title={this.state.title} />
+        {this.state.data.map(item => <TestCard key={item.id} title={item.name} description='Список обследований, который положен вам бесплатно по полису ОМС' />)}
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  header: {
-    paddingTop: 40,
-    paddingBottom: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#3FC27B'
-  },
-  welcome: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    margin: 10,
-    color: '#fff'
+  body: {
+    backgroundColor: '#f8f8f8',
+    height: '100%'
   }
 })

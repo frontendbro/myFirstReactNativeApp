@@ -1,15 +1,22 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Image, Text, StyleSheet, TouchableOpacity} from 'react-native'
+import { w, h } from './constants'
 
-const TestCard = ({title, description}) => {
+const TestCard = ({title, description, onPress}) => {
   return (
-    <View style={styles.card}>
-      <View style={styles.img} />
-      <View style={styles.txt}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.description}>{description}</Text>
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.card}>
+        <Image
+          style={styles.img}
+          source={{ uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png' }}
+        />
+        <View style={styles.txt}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.description}>{description}</Text>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
+    
   )
 }
 

@@ -4,11 +4,11 @@ import Header from '../components/uikit/Header'
 
 class DetailsScreen extends PureComponent {
   render() {
-    const {image, name, summary} = this.props.navigation.state.params
-    const {navigation} = this.props
+    /* const {image, name, summary} = this.props.navigation.state.params
+    const {navigation} = this.props */
     return (
       <View>
-        <Header title={name} />
+        <Header title='Тест здоровья' />
         <Text>Hello world</Text>
       </View>
     )

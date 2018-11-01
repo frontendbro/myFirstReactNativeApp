@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, Dimensions } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import Header from '../components/uikit/Header'
 import TestCard from '../components/uikit/TestCard'
 import { DETAILS } from '../routes'
@@ -28,7 +28,7 @@ export default class HomeScreen extends Component {
     return (
       <View style={styles.body}>
         <Header title={title} />
-        {this.state.data.map(item => <TestCard key={item.id} onPress={() => navigation.navigate(DETAILS, (item.title))} title={item.name} description='Список обследований, который положен вам бесплатно по полису ОМС' />)}
+        {data.map(item => <TestCard key={item.id} onPress={() => navigation.navigate(DETAILS, (item.title))} title={item.name} description='Список обследований, который положен вам бесплатно по полису ОМС' />)}
       </View>
     )
   }

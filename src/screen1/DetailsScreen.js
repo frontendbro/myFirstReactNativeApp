@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react'
-import {View } from 'react-native'
+import {View, ScrollView } from 'react-native'
 import Header from '../components/uikit/Header'
 import QuestionCard from '../components/uikit/QuestionCard'
 
@@ -25,12 +25,12 @@ class DetailsScreen extends PureComponent {
     /* const {image, name, summary} = this.props.navigation.state.params
     const {navigation} = this.props */
     return (
-      <View>
+      <ScrollView>
         <Header title="Тест здоровья" />
         <View>
           {dataQuestions.map(item => <QuestionCard title={item.text} srcImg={item.picture} />)}
         </View>
-      </View>
+      </ScrollView>
     )
   }
 }

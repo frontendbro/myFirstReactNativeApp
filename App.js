@@ -22,7 +22,7 @@ export default class App extends Component {
   }
 
   handleClickx = () => {
-    console.log('object');
+    console.log('object')
   }
 
   render() {

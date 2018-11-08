@@ -9,7 +9,7 @@ const QuestionCard = ({ title, srcImg }) => {
     <View style={styles.box}>
       <Image
         style={styles.img}
-        // source={{ uri: { srcImg} }}
+        source={{ uri: 'https://images.unsplash.com/photo-1513756590375-87f7f681ae85?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=50c8b3ef630ee66dcf83582f777ce042&auto=format&fit=crop&w=1552&q=80' }}
       />
       <View style={styles.txt}>
         <Text style={styles.title}>{title}</Text>
